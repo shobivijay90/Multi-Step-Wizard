@@ -89,13 +89,18 @@ const AddressInfo: React.FC = () => {
   };
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (formData.address1 && formData.city && /^\d{5}(-\d{4})?$/.test(formData.zipCode)) {
+    if (!/^\d{5}(-\d{4})?$/.test(formData.zipCode)) {
+      window.alert("Please enter a valid Zip Code.");
+      return;
+    }
+    if (formData.address1 && formData.city && formData.zipCode) {
       router.push({
         pathname: "/preview",
         query: { selectedState: selectedState?.value || "" },
       });
     } else {
-      alert("Please fill in all fields.");
+      window.alert("Please fill in all fields.");
+      return;
     }
   };
 
@@ -126,7 +131,7 @@ const AddressInfo: React.FC = () => {
         </div>
         <div>
           <StyledLabel>State:</StyledLabel>
-            <StateSelect onChange={handleSelectChange} value={selectedState} />
+          <StateSelect onChange={handleSelectChange} value={selectedState} />
         </div>
         <div>
           <StyledLabel>Zip Code:</StyledLabel>

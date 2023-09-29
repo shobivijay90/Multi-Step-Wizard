@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
-import { useFormData } from '../context/FormDataContext';
+import { useFormData } from "../context/FormDataContext";
 
 const StyledForm = styled.form`
   max-width: 400px;
@@ -54,9 +54,8 @@ const PersonalInfo: React.FC = () => {
   const { formData, setFormData } = useFormData();
   const router = useRouter();
 
-
   useEffect(() => {
-    const storedFormData = localStorage.getItem('formData');
+    const storedFormData = localStorage.getItem("formData");
     if (storedFormData) {
       setFormData(JSON.parse(storedFormData));
     }
@@ -65,21 +64,25 @@ const PersonalInfo: React.FC = () => {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
-    localStorage.setItem('formData', JSON.stringify({ ...formData, [name]: value }));
+    localStorage.setItem(
+      "formData",
+      JSON.stringify({ ...formData, [name]: value })
+    );
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (formData.firstName && formData.lastName && formData.age) {
-      router.push('/contact-info');
+      router.push("/contact-info");
     } else {
-      alert("Please fill in all fields.");
+      window.alert("Please fill in all fields.");
+      return;
     }
   };
   return (
     <div>
       <Styledh2>Registration Form</Styledh2>
-      <StyledForm >
+      <StyledForm>
         <h3>Personal details</h3>
         <div>
           <StyledLabel>First Name:</StyledLabel>
@@ -114,7 +117,9 @@ const PersonalInfo: React.FC = () => {
           />
         </div>
         <MyButton>
-          <StyledButton type="submit" onClick={handleSubmit}>Next</StyledButton>
+          <StyledButton type="submit" onClick={handleSubmit}>
+            Next
+          </StyledButton>
         </MyButton>
       </StyledForm>
     </div>

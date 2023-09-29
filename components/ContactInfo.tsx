@@ -1,7 +1,7 @@
-import styled from 'styled-components';
-import React, { useState, useEffect } from 'react';
-import { useRouter } from 'next/router';
-import { useFormData } from '../context/FormDataContext';
+import styled from "styled-components";
+import React, { useState, useEffect } from "react";
+import { useRouter } from "next/router";
+import { useFormData } from "../context/FormDataContext";
 
 const StyledForm = styled.form`
   max-width: 400px;
@@ -13,7 +13,7 @@ const StyledForm = styled.form`
 `;
 
 const Styledh2 = styled.h2`
-   text-align: center
+  text-align: center;
 `;
 const StyledLabel = styled.label`
   font-weight: bold;
@@ -22,7 +22,7 @@ const StyledLabel = styled.label`
   margin-bottom: 5px;
   display: block;
 `;
-  const StyledInput = styled.input`
+const StyledInput = styled.input`
   width: 90%;
   padding: 10px;
   margin-bottom: 15px;
@@ -44,12 +44,11 @@ const StyledButton = styled.button`
   }
 `;
 const MyButton = styled.div`
-display: flex;
-flex-direction: row;
-justify-content: flex-end;
-padding-right: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  padding-right: 20px;
 `;
-
 
 const ContactInfo: React.FC = () => {
   const { formData, setFormData } = useFormData();
@@ -57,7 +56,7 @@ const ContactInfo: React.FC = () => {
   const router = useRouter();
 
   useEffect(() => {
-    const storedFormData = localStorage.getItem('formData');
+    const storedFormData = localStorage.getItem("formData");
     if (storedFormData) {
       setFormData(JSON.parse(storedFormData));
     }
@@ -66,7 +65,10 @@ const ContactInfo: React.FC = () => {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
-    localStorage.setItem('formData', JSON.stringify({ ...formData, [name]: value }));
+    localStorage.setItem(
+      "formData",
+      JSON.stringify({ ...formData, [name]: value })
+    );
   };
 
   const handleGoBack = (e: React.FormEvent) => {
@@ -75,11 +77,23 @@ const ContactInfo: React.FC = () => {
   };
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (/^\d{10}$/.test(formData.phoneNumber) && /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/.test(formData.email)) {
-      router.push('/address-info');
-    } else {
-      alert('Please enter a valid phone number and email address.');
+    if (!/^\d{10}$/.test(formData.phoneNumber)) {
+      window.alert("Please enter a valid Phone Number.");
+      return;
     }
+    if (
+      !/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/.test(formData.email)
+    ) {
+      window.alert("Please enter a valid email.");
+      return;
+    }
+    if (formData.phoneNumber && formData.email) {
+      router.push("/address-info");
+    } else {
+      window.alert("Please fill in all fields.");
+      return;
+    }
+   
   };
 
   return (
@@ -108,8 +122,10 @@ const ContactInfo: React.FC = () => {
           />
         </div>
         <MyButton>
-        <StyledButton onClick={handleGoBack}>Previous</StyledButton>
-        <StyledButton type="submit" onClick={handleSubmit}>Next</StyledButton>
+          <StyledButton onClick={handleGoBack}>Previous</StyledButton>
+          <StyledButton type="submit" onClick={handleSubmit}>
+            Next
+          </StyledButton>
         </MyButton>
       </StyledForm>
     </div>

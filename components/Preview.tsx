@@ -13,7 +13,7 @@ const StyledForm = styled.form`
 `;
 
 const StyledFlex = styled.div`
-  div{
+  div {
     width: 90%;
     margin: auto;
     display: flex;
@@ -66,33 +66,42 @@ const Preview = () => {
       <StyledForm>
         <Styledh1>Preview Details</Styledh1>
         <StyledFlex>
-        <div>
-          <h3>First Name: </h3><p>{formData.firstName}</p>
-        </div>
-        <div>
-          <h3>last Name: </h3><p>{formData.lastName}</p>
-        </div>
-        <div>
-          <h3>Age: </h3><p>{formData.age}</p>
-        </div>
-        <div>
-          <h3>Email: </h3><p>{formData.email}</p>
-        </div>
-        <div>
-          <h3>Phone Number: </h3><p>{formData.phoneNumber}</p>
-        </div>
-        <div>
-          <h3>Address 1: </h3><p>{formData.address1}</p>
-        </div>
-        <div>
-          <h3>City: </h3><p>{formData.city}</p>
-        </div>
-        <div>
-          <h3>State: </h3><p>{selectedState}</p>
-        </div>
-        <div>
-          <h3>Zip Code: </h3><p>{formData.zipCode}</p>
-        </div>
+          <div>
+            <h3>First Name: </h3>
+            <p>{formData.firstName}</p>
+          </div>
+          <div>
+            <h3>last Name: </h3>
+            <p>{formData.lastName}</p>
+          </div>
+          <div>
+            <h3>Age: </h3>
+            <p>{formData.age}</p>
+          </div>
+          <div>
+            <h3>Email: </h3>
+            <p>{formData.email}</p>
+          </div>
+          <div>
+            <h3>Phone Number: </h3>
+            <p>{formData.phoneNumber}</p>
+          </div>
+          <div>
+            <h3>Address 1: </h3>
+            <p>{formData.address1}</p>
+          </div>
+          <div>
+            <h3>City: </h3>
+            <p>{formData.city}</p>
+          </div>
+          <div>
+            <h3>State: </h3>
+            <p>{selectedState}</p>
+          </div>
+          <div>
+            <h3>Zip Code: </h3>
+            <p>{formData.zipCode}</p>
+          </div>
         </StyledFlex>
         <MyButton>
           <StyledButton type="submit" onClick={handleGoBack}>
