@@ -1,7 +1,7 @@
-// context/FormDataContext.tsx
+
 import React, { createContext, useContext, useState, ReactNode } from 'react';
 
-// Define the shape of the form data
+
 interface FormData {
   firstName: string;
   lastName: string;
@@ -14,7 +14,7 @@ interface FormData {
   zipCode: string;
 }
 
-// Create the context
+
 interface FormDataContextType {
   formData: FormData;
   setFormData: React.Dispatch<React.SetStateAction<FormData>>;
@@ -22,7 +22,7 @@ interface FormDataContextType {
 
 const FormDataContext = createContext<FormDataContextType | undefined>(undefined);
 
-// Create a provider component to wrap your app with
+
 export const FormDataProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   const [formData, setFormData] = useState<FormData>({
     firstName: '',
@@ -34,7 +34,7 @@ export const FormDataProvider: React.FC<{ children: ReactNode }> = ({ children }
     city: '',
     state: '',
     zipCode: ''
-    // Initialize other fields
+ 
   });
 
   return (
@@ -44,7 +44,6 @@ export const FormDataProvider: React.FC<{ children: ReactNode }> = ({ children }
   );
 };
 
-// Custom hook to access the context
 export const useFormData = () => {
   const context = useContext(FormDataContext);
   if (context === undefined) {
