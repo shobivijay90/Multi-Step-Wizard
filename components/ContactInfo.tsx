@@ -1,7 +1,6 @@
-
+import styled from 'styled-components';
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
-import styled from 'styled-components';
 import { useFormData } from '../context/FormDataContext';
 
 const StyledForm = styled.form`

@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
-import { Option } from './types'; 
 import styled from 'styled-components';
+import React, { useState } from 'react';
 import Select from 'react-select';
 
 export const StyledSelect = styled(Select)`

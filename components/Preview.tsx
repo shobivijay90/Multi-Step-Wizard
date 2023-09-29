@@ -1,8 +1,8 @@
-import React from "react";
 import styled from "styled-components";
+import React from "react";
 import { useRouter } from "next/router";
 import { useFormData } from "../context/FormDataContext";
-import AutocompleteSelect from "./StateSelect";
+import { StyledSelect } from './StateSelect';
 
 const StyledForm = styled.form`
   max-width: 400px;
@@ -11,6 +11,17 @@ const StyledForm = styled.form`
   border: 1px solid #ccc;
   border-radius: 5px;
   background-color: #f9f9f9;
+`;
+
+const StyledFlex = styled.div`
+  div{
+    width: 90%;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
 `;
 
 const Styledh1 = styled.h1`
@@ -54,34 +65,35 @@ const Preview = () => {
     <div>
       <StyledForm>
         <Styledh1>Preview Details</Styledh1>
+        <StyledFlex>
         <div>
-          <h3>First Name: </h3><span>{formData.firstName}</span>
+          <h3>First Name: </h3><p>{formData.firstName}</p>
         </div>
         <div>
-          <h3>last Name: </h3><span>{formData.lastName}</span>
+          <h3>last Name: </h3><p>{formData.lastName}</p>
         </div>
         <div>
-          <h3>Age: </h3><span>{formData.age}</span>
+          <h3>Age: </h3><p>{formData.age}</p>
         </div>
         <div>
-          <h3>Email: </h3><span>{formData.email}</span>
+          <h3>Email: </h3><p>{formData.email}</p>
         </div>
         <div>
-          <h3>Phone Number: </h3><span>{formData.phoneNumber}</span>
+          <h3>Phone Number: </h3><p>{formData.phoneNumber}</p>
         </div>
         <div>
-          <h3>Address 1: </h3><span>{formData.address1}</span>
+          <h3>Address 1: </h3><p>{formData.address1}</p>
         </div>
         <div>
-          <h3>City: </h3><span>{formData.city}</span>
+          <h3>City: </h3><p>{formData.city}</p>
         </div>
         <div>
-          <h3>State: </h3><span>{selectedState}</span>
+          <h3>State: </h3><p>{selectedState}</p>
         </div>
         <div>
-          <h3>Zip Code: </h3><span>{formData.zipCode}</span>
-
+          <h3>Zip Code: </h3><p>{formData.zipCode}</p>
         </div>
+        </StyledFlex>
         <MyButton>
           <StyledButton type="submit" onClick={handleGoBack}>
             Back
