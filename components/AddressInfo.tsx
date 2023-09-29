@@ -93,7 +93,11 @@ const AddressInfo: React.FC = () => {
       window.alert("Please enter a valid Zip Code.");
       return;
     }
-    if (formData.address1 && formData.city && formData.zipCode) {
+    if(!selectedState){
+      window.alert("Please select the valid state.");
+      return;
+    }
+    if (formData.address1 && formData.city && formData.zipCode && {selectedState}) {
       router.push({
         pathname: "/preview",
         query: { selectedState: selectedState?.value || "" },
@@ -131,7 +135,7 @@ const AddressInfo: React.FC = () => {
         </div>
         <div>
           <StyledLabel>State:</StyledLabel>
-          <StateSelect onChange={handleSelectChange} value={selectedState} />
+          <StateSelect onChange={handleSelectChange} value={selectedState}/>
         </div>
         <div>
           <StyledLabel>Zip Code:</StyledLabel>
