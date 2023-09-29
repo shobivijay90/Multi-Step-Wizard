@@ -128,7 +128,7 @@ const AddressInfo: React.FC = () => {
       <StyledForm>
         <h3>Address Details</h3>
         <div>
-          <StyledLabel>Address 1:</StyledLabel>
+          <StyledLabel>Street:</StyledLabel>
           <StyledInput
             type="text"
             name="address1"
