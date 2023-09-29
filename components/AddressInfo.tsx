@@ -83,7 +83,10 @@ const AddressInfo: React.FC = () => {
       JSON.stringify({ ...formData, [name]: value })
     );
   };
-
+  const handleGoBack = (e: React.FormEvent) => {
+    e.preventDefault();
+    router.back();
+  };
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (formData.address1 && formData.city && formData.zipCode) {
@@ -94,10 +97,6 @@ const AddressInfo: React.FC = () => {
     } else {
       alert("Please fill in all fields.");
     }
-  };
-
-  const handleGoBack = () => {
-    router.back();
   };
 
   return (

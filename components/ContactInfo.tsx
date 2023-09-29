@@ -69,6 +69,10 @@ const ContactInfo: React.FC = () => {
     localStorage.setItem('formData', JSON.stringify({ ...formData, [name]: value }));
   };
 
+  const handleGoBack = (e: React.FormEvent) => {
+    e.preventDefault();
+    router.back();
+  };
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (/^\d{10}$/.test(formData.phoneNumber) && /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/.test(formData.email)) {
@@ -77,11 +81,6 @@ const ContactInfo: React.FC = () => {
       alert('Please enter a valid phone number and email address.');
     }
   };
-
-  const handleGoBack = () => {
-    router.back(); 
-  };
-
 
   return (
     <div>
@@ -109,7 +108,7 @@ const ContactInfo: React.FC = () => {
           />
         </div>
         <MyButton>
-        <StyledButton type="submit" onClick={handleGoBack}>Back</StyledButton>
+        <StyledButton onClick={handleGoBack}>Back</StyledButton>
         <StyledButton type="submit" onClick={handleSubmit}>Next</StyledButton>
         </MyButton>
       </StyledForm>

@@ -57,7 +57,8 @@ const Preview = () => {
     router.push("/submit");
   };
 
-  const handleGoBack = () => {
+  const handleGoBack = (e: React.FormEvent) => {
+    e.preventDefault();
     router.back();
   };
 
