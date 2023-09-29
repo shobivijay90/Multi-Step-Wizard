@@ -53,17 +53,17 @@ const MyButton = styled.div`
 
 const PersonalInfo: React.FC = () => {
   const initialFormData = {
-    firstName: '',
-    lastName: '',
+    firstName: "",
+    lastName: "",
     age: 0,
-    email: '',
-    phoneNumber:'',
-    address1: '',
-    city: '',
-    state: '',
-    zipCode: ''
+    email: "",
+    phoneNumber: "",
+    address1: "",
+    city: "",
+    state: "",
+    zipCode: "",
   };
-  const { formData, setFormData} = useFormData();
+  const { formData, setFormData } = useFormData();
   const router = useRouter();
 
   useEffect(() => {
@@ -86,6 +86,10 @@ const PersonalInfo: React.FC = () => {
   };
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    if (formData.age > 100 || formData.age < 1) {
+      window.alert("Please enter a valid age.");
+      return;
+    }
     if (formData.firstName && formData.lastName && formData.age) {
       router.push("/contact-info");
     } else {
@@ -124,14 +128,14 @@ const PersonalInfo: React.FC = () => {
             type="number"
             name="age"
             min="1"
-            max="120"
+            max="100"
             value={formData.age}
             onChange={handleChange}
             required
           />
         </div>
         <MyButton>
-        <StyledButton type="submit" onClick={resetForm}>
+          <StyledButton type="submit" onClick={resetForm}>
             Reset
           </StyledButton>
           <StyledButton type="submit" onClick={handleSubmit}>
