@@ -47,11 +47,23 @@ const MyButton = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
-  padding-right: 20px;
+  margin-right: 20px;
+  gap: 10px;
 `;
 
 const PersonalInfo: React.FC = () => {
-  const { formData, setFormData } = useFormData();
+  const initialFormData = {
+    firstName: '',
+    lastName: '',
+    age: 0,
+    email: '',
+    phoneNumber:'',
+    address1: '',
+    city: '',
+    state: '',
+    zipCode: ''
+  };
+  const { formData, setFormData} = useFormData();
   const router = useRouter();
 
   useEffect(() => {
@@ -69,7 +81,9 @@ const PersonalInfo: React.FC = () => {
       JSON.stringify({ ...formData, [name]: value })
     );
   };
-
+  const resetForm = () => {
+    setFormData(initialFormData);
+  };
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (formData.firstName && formData.lastName && formData.age) {
@@ -117,6 +131,9 @@ const PersonalInfo: React.FC = () => {
           />
         </div>
         <MyButton>
+        <StyledButton type="submit" onClick={resetForm}>
+            Reset
+          </StyledButton>
           <StyledButton type="submit" onClick={handleSubmit}>
             Next
           </StyledButton>

@@ -14,7 +14,6 @@ interface FormData {
   zipCode: string;
 }
 
-
 interface FormDataContextType {
   formData: FormData;
   setFormData: React.Dispatch<React.SetStateAction<FormData>>;
@@ -38,7 +37,7 @@ export const FormDataProvider: React.FC<{ children: ReactNode }> = ({ children }
   });
 
   return (
-    <FormDataContext.Provider value={{ formData, setFormData }}>
+    <FormDataContext.Provider value={{ formData, setFormData}}>
       {children}
     </FormDataContext.Provider>
   );

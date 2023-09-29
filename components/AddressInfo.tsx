@@ -40,7 +40,6 @@ const StyledButton = styled.button`
   border-radius: 3px;
   cursor: pointer;
   font-weight: bold;
-  margin-left: 20px;
   &:hover {
     background-color: #0056b3;
   }
@@ -49,10 +48,22 @@ const MyButton = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
-  padding-right: 20px;
+  margin-right: 20px;
+  gap: 10px;
 `;
 
 const AddressInfo: React.FC = () => {
+  const initialFormData = {
+    firstName: '',
+    lastName: '',
+    age: 0,
+    email: '',
+    phoneNumber:'',
+    address1: '',
+    city: '',
+    state: '',
+    zipCode: ''
+  };
   const { formData, setFormData } = useFormData();
 
   const router = useRouter();
@@ -82,6 +93,9 @@ const AddressInfo: React.FC = () => {
       "formData",
       JSON.stringify({ ...formData, [name]: value })
     );
+  };
+  const resetForm = () => {
+    setFormData(initialFormData);
   };
   const handleGoBack = (e: React.FormEvent) => {
     e.preventDefault();
@@ -148,6 +162,9 @@ const AddressInfo: React.FC = () => {
           />
         </div>
         <MyButton>
+        <StyledButton type="submit" onClick={resetForm}>
+            Reset
+          </StyledButton>
           <StyledButton type="submit" onClick={handleGoBack}>
             Previous
           </StyledButton>
