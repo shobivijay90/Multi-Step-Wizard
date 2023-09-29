@@ -108,7 +108,7 @@ const ContactInfo: React.FC = () => {
           />
         </div>
         <MyButton>
-        <StyledButton onClick={handleGoBack}>Back</StyledButton>
+        <StyledButton onClick={handleGoBack}>Previous</StyledButton>
         <StyledButton type="submit" onClick={handleSubmit}>Next</StyledButton>
         </MyButton>
       </StyledForm>

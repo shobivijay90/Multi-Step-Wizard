@@ -2,7 +2,6 @@ import styled from "styled-components";
 import React from "react";
 import { useRouter } from "next/router";
 import { useFormData } from "../context/FormDataContext";
-import { StyledSelect } from './StateSelect';
 
 const StyledForm = styled.form`
   max-width: 400px;

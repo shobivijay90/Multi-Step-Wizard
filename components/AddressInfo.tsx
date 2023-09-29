@@ -89,7 +89,7 @@ const AddressInfo: React.FC = () => {
   };
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (formData.address1 && formData.city && formData.zipCode) {
+    if (formData.address1 && formData.city && /^\d{5}(-\d{4})?$/.test(formData.zipCode)) {
       router.push({
         pathname: "/preview",
         query: { selectedState: selectedState?.value || "" },
@@ -140,7 +140,7 @@ const AddressInfo: React.FC = () => {
         </div>
         <MyButton>
           <StyledButton type="submit" onClick={handleGoBack}>
-            Back
+            Previous
           </StyledButton>
           <StyledButton type="submit" onClick={handleSubmit}>
             Next

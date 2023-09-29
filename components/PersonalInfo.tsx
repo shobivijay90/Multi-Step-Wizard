@@ -70,7 +70,7 @@ const PersonalInfo: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (formData.firstName && formData.lastName && /^[1-9]\d*$/.test(formData.age)) {
+    if (formData.firstName && formData.lastName && formData.age) {
       router.push('/contact-info');
     } else {
       alert("Please fill in all fields.");
@@ -104,8 +104,10 @@ const PersonalInfo: React.FC = () => {
         <div>
           <StyledLabel>Age:</StyledLabel>
           <StyledInput
-            type="text"
+            type="number"
             name="age"
+            min="1"
+            max="120"
             value={formData.age}
             onChange={handleChange}
             required

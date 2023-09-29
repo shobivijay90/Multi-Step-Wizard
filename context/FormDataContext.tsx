@@ -5,7 +5,7 @@ import React, { createContext, useContext, useState, ReactNode } from 'react';
 interface FormData {
   firstName: string;
   lastName: string;
-  age: string;
+  age: number;
   email: string;
   phoneNumber: string;
   address1: string;
@@ -27,7 +27,7 @@ export const FormDataProvider: React.FC<{ children: ReactNode }> = ({ children }
   const [formData, setFormData] = useState<FormData>({
     firstName: '',
     lastName: '',
-    age: '',
+    age: 0,
     email: '',
     phoneNumber:'',
     address1: '',
