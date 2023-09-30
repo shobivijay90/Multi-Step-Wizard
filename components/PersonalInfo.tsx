@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import { useFormData } from "../context/FormDataContext";
-import { Styledh2 } from '../GlobalStyles';
+import { Styledh2 } from "../GlobalStyles";
 import { StyledForm } from "../GlobalStyles";
 import { StyledLabel } from "../GlobalStyles";
 import { StyledInput } from "../GlobalStyles";
 import { StyledFormRequired } from "../GlobalStyles";
 import { MyButton } from "../GlobalStyles";
 import { StyledButton } from "../GlobalStyles";
-
 
 const PersonalInfo: React.FC = () => {
   const initialFormData = {
@@ -45,6 +44,23 @@ const PersonalInfo: React.FC = () => {
   };
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+
+    if (formData.firstName.length < 2 || formData.firstName.length > 50) {
+      window.alert("Please enter a valid First Name.");
+      return;
+    }
+    if (!/^[a-zA-Z]+$/.test(formData.firstName)) {
+      window.alert("Please enter a valid First Name.");
+      return;
+    }
+    if (formData.lastName.length < 2 || formData.lastName.length > 50) {
+      window.alert("Please enter a valid Last Name.");
+      return;
+    }
+    if (!/^[a-zA-Z]+$/.test(formData.firstName)) {
+      window.alert("Please enter a valid Last Name.");
+      return;
+    }
     if (formData.age > 100 || formData.age < 1) {
       window.alert("Please enter a valid age.");
       return;
@@ -62,7 +78,9 @@ const PersonalInfo: React.FC = () => {
       <StyledForm>
         <h3>Personal details</h3>
         <div>
-          <StyledLabel>First Name <StyledFormRequired>*</StyledFormRequired></StyledLabel>
+          <StyledLabel>
+            First Name <StyledFormRequired>*</StyledFormRequired>
+          </StyledLabel>
           <StyledInput
             type="text"
             name="firstName"
@@ -72,7 +90,9 @@ const PersonalInfo: React.FC = () => {
           />
         </div>
         <div>
-          <StyledLabel>Last Name <StyledFormRequired>*</StyledFormRequired></StyledLabel>
+          <StyledLabel>
+            Last Name <StyledFormRequired>*</StyledFormRequired>
+          </StyledLabel>
           <StyledInput
             type="text"
             name="lastName"
@@ -82,7 +102,9 @@ const PersonalInfo: React.FC = () => {
           />
         </div>
         <div>
-          <StyledLabel>Age <StyledFormRequired>*</StyledFormRequired></StyledLabel>
+          <StyledLabel>
+            Age <StyledFormRequired>*</StyledFormRequired>
+          </StyledLabel>
           <StyledInput
             type="number"
             name="age"
