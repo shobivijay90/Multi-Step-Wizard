@@ -74,6 +74,7 @@ export const Container = styled.div`
 `;
 
 export const SuccessMessage = styled.h2`
+text-align: center;
   font-size: 2rem;
   color: #28a745;
   animation: fadeIn 1s ease;
