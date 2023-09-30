@@ -12,6 +12,10 @@ const StyledForm = styled.form`
   background-color: #f9f9f9;
 `;
 
+const Styledh2 = styled.h2`
+  text-align: center;
+`;
+
 const StyledFlex = styled.div`
   div {
     width: 90%;
@@ -63,8 +67,9 @@ const Preview = () => {
 
   return (
     <div>
+      <Styledh2>Registration Form</Styledh2>
       <StyledForm>
-        <Styledh1>Preview Details</Styledh1>
+        <h3>Preview details</h3>
         <StyledFlex>
           <div>
             <h3>First Name: </h3>
