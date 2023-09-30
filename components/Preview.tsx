@@ -1,54 +1,11 @@
-import styled from "styled-components";
+import { Styledh2 } from '../GlobalStyles';
+import { StyledForm } from "../GlobalStyles";
+import { StyledFlex } from '../GlobalStyles';
+import { MyButton } from "../GlobalStyles";
+import { StyledButton } from "../GlobalStyles";
 import React from "react";
 import { useRouter } from "next/router";
 import { useFormData } from "../context/FormDataContext";
-
-const StyledForm = styled.form`
-  max-width: 400px;
-  margin: 0 auto;
-  padding: 30px 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  background-color: #f9f9f9;
-`;
-
-const Styledh2 = styled.h2`
-  text-align: center;
-`;
-
-const StyledFlex = styled.div`
-  div {
-    width: 90%;
-    margin: auto;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-  }
-`;
-
-const Styledh1 = styled.h1`
-  text-align: center;
-`;
-const StyledButton = styled.button`
-  background-color: #007bff;
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 3px;
-  cursor: pointer;
-  font-weight: bold;
-  margin-left: 20px;
-  &:hover {
-    background-color: #0056b3;
-  }
-`;
-const MyButton = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  padding-right: 20px;
-`;
 
 const Preview = () => {
   const router = useRouter();
