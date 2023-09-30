@@ -57,7 +57,7 @@ const PersonalInfo: React.FC = () => {
       window.alert("Please enter a valid Last Name.");
       return;
     }
-    if (!/^[a-zA-Z]+$/.test(formData.firstName)) {
+    if (!/^[a-zA-Z]+$/.test(formData.lastName)) {
       window.alert("Please enter a valid Last Name.");
       return;
     }
