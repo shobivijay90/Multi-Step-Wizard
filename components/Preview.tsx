@@ -105,7 +105,7 @@ const Preview = () => {
         </StyledFlex>
         <MyButton>
           <StyledButton type="submit" onClick={handleGoBack}>
-            Back
+            Previous
           </StyledButton>
           <StyledButton type="submit" onClick={handleSubmit}>
             Submit
