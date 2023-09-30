@@ -71,7 +71,7 @@ const Preview = () => {
             <p>{formData.firstName}</p>
           </div>
           <div>
-            <h3>last Name: </h3>
+            <h3>Last Name: </h3>
             <p>{formData.lastName}</p>
           </div>
           <div>
@@ -87,7 +87,7 @@ const Preview = () => {
             <p>{formData.phoneNumber}</p>
           </div>
           <div>
-            <h3>Address 1: </h3>
+            <h3>Street: </h3>
             <p>{formData.address1}</p>
           </div>
           <div>

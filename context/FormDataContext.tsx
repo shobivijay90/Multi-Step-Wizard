@@ -26,7 +26,7 @@ export const FormDataProvider: React.FC<{ children: ReactNode }> = ({ children }
   const [formData, setFormData] = useState<FormData>({
     firstName: '',
     lastName: '',
-    age: 0,
+    age: 18,
     email: '',
     phoneNumber:'',
     address1: '',
