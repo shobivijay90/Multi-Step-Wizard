@@ -55,7 +55,7 @@ const PersonalInfo: React.FC = () => {
   const initialFormData = {
     firstName: "",
     lastName: "",
-    age: 0,
+    age: 18,
     email: "",
     phoneNumber: "",
     address1: "",
@@ -127,7 +127,7 @@ const PersonalInfo: React.FC = () => {
           <StyledInput
             type="number"
             name="age"
-            min="1"
+            min="18"
             max="100"
             value={formData.age}
             onChange={handleChange}
