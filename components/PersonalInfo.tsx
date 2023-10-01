@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, ChangeEvent } from "react";
 import { useRouter } from "next/router";
 import { useFormData } from "../context/FormDataContext";
 import { Styledh2 } from "../GlobalStyles";
@@ -13,7 +13,7 @@ const PersonalInfo: React.FC = () => {
   const initialFormData = {
     firstName: "",
     lastName: "",
-    age: 18,
+    age: '',
     email: "",
     phoneNumber: "",
     address1: "",
@@ -29,7 +29,12 @@ const PersonalInfo: React.FC = () => {
     if (storedFormData) {
       setFormData(JSON.parse(storedFormData));
     }
-  }, [setFormData]);
+    return () => {
+      localStorage.removeItem("formData");
+    };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+  
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -39,29 +44,29 @@ const PersonalInfo: React.FC = () => {
       JSON.stringify({ ...formData, [name]: value })
     );
   };
+  const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = event.target;
+    setFormData(prevData => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
   const resetForm = () => {
     setFormData(initialFormData);
   };
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-
-    if (formData.firstName.length < 2 || formData.firstName.length > 50) {
+    if (formData.firstName.length < 2 || formData.firstName.length > 50 || !/^[A-Za-z ]+$/.test(formData.firstName)) {
       window.alert("Please enter a valid First Name.");
       return;
     }
-    if (!/^[a-zA-Z]+$/.test(formData.firstName)) {
-      window.alert("Please enter a valid First Name.");
-      return;
-    }
-    if (formData.lastName.length < 2 || formData.lastName.length > 50) {
+    if (formData.lastName.length < 2 || formData.lastName.length > 50 || !/^[A-Za-z ]+$/.test(formData.lastName)) {
       window.alert("Please enter a valid Last Name.");
       return;
     }
-    if (!/^[a-zA-Z]+$/.test(formData.lastName)) {
-      window.alert("Please enter a valid Last Name.");
-      return;
-    }
-    if (formData.age > 100 || formData.age < 1) {
+     const numericAge = parseInt(formData.age, 10);
+    if (numericAge > 100 || numericAge < 1) {
       window.alert("Please enter a valid age.");
       return;
     }
@@ -86,6 +91,7 @@ const PersonalInfo: React.FC = () => {
             name="firstName"
             value={formData.firstName}
             onChange={handleChange}
+            placeholder="Enter first name"
             required
           />
         </div>
@@ -98,6 +104,7 @@ const PersonalInfo: React.FC = () => {
             name="lastName"
             value={formData.lastName}
             onChange={handleChange}
+            placeholder="Enter last name"
             required
           />
         </div>
@@ -108,10 +115,9 @@ const PersonalInfo: React.FC = () => {
           <StyledInput
             type="number"
             name="age"
-            min="18"
-            max="100"
             value={formData.age}
-            onChange={handleChange}
+            onChange={handleInputChange}
+            placeholder="Enter age (1 - 100)"
             required
           />
         </div>

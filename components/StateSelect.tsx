@@ -76,7 +76,7 @@ const StateSelect: React.FC<StateSelectProps> = ({ onChange, value }) => {
       onChange={onChange}
       value={value}
       isSearchable
-      placeholder="Select a state..."
+      placeholder="Select a state"
       required
     />
   );

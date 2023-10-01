@@ -14,7 +14,7 @@ const ContactInfo: React.FC = () => {
   const initialFormData = {
     firstName: '',
     lastName: '',
-    age: 0,
+    age: '',
     email: '',
     phoneNumber:'',
     address1: '',
@@ -82,6 +82,7 @@ const ContactInfo: React.FC = () => {
             name="email"
             value={formData.email}
             onChange={handleChange}
+            placeholder="Enter email"
             required
           />
         </div>
@@ -92,6 +93,7 @@ const ContactInfo: React.FC = () => {
             name="phoneNumber"
             value={formData.phoneNumber}
             onChange={handleChange}
+            placeholder="Enter phone number"
             required
           />
         </div>

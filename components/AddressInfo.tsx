@@ -14,7 +14,7 @@ const AddressInfo: React.FC = () => {
   const initialFormData = {
     firstName: '',
     lastName: '',
-    age: 0,
+    age: '',
     email: '',
     phoneNumber:'',
     address1: '',
@@ -92,6 +92,7 @@ const AddressInfo: React.FC = () => {
             name="address1"
             value={formData.address1}
             onChange={handleChange}
+            placeholder="Enter street"
             required
           />
         </div>
@@ -102,6 +103,7 @@ const AddressInfo: React.FC = () => {
             name="city"
             value={formData.city}
             onChange={handleChange}
+            placeholder="Enter city"
             required
           />
         </div>
@@ -110,12 +112,13 @@ const AddressInfo: React.FC = () => {
           <StateSelect onChange={handleSelectChange} value={selectedState}/>
         </div>
         <div>
-          <StyledLabel>Zip Code <StyledFormRequired>*</StyledFormRequired></StyledLabel>
+          <StyledLabel>Zipcode <StyledFormRequired>*</StyledFormRequired></StyledLabel>
           <StyledInput
             type="text"
             name="zipCode"
             value={formData.zipCode}
             onChange={handleChange}
+            placeholder="Enter zipcode"
             required
           />
         </div>
