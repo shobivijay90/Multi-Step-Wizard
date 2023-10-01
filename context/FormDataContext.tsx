@@ -8,7 +8,7 @@ interface FormData {
   age: string;
   email: string;
   phoneNumber: string;
-  address1: string;
+  street: string;
   city: string;
   state: string;
   zipCode: string;
@@ -29,7 +29,7 @@ export const FormDataProvider: React.FC<{ children: ReactNode }> = ({ children }
     age: '',
     email: '',
     phoneNumber:'',
-    address1: '',
+    street: '',
     city: '',
     state: '',
     zipCode: ''

@@ -17,7 +17,7 @@ const AddressInfo: React.FC = () => {
     age: '',
     email: '',
     phoneNumber:'',
-    address1: '',
+    street: '',
     city: '',
     state: '',
     zipCode: ''
@@ -69,7 +69,7 @@ const AddressInfo: React.FC = () => {
       window.alert("Please select the valid state.");
       return;
     }
-    if (formData.address1 && formData.city && formData.zipCode && {selectedState}) {
+    if (formData.street && formData.city && formData.zipCode && {selectedState}) {
       router.push({
         pathname: "/preview",
         query: { selectedState: selectedState?.value || "" },
@@ -78,6 +78,18 @@ const AddressInfo: React.FC = () => {
       window.alert("Please fill in all fields.");
       return;
     }
+
+    setFormData({
+      firstName: '',
+      lastName: '',
+      age: '',
+      email: '',
+      phoneNumber:'',
+      street: '',
+      city: '',
+      state: '',
+      zipCode: ''
+    });
   };
 
   return (
@@ -90,7 +102,7 @@ const AddressInfo: React.FC = () => {
           <StyledInput
             type="text"
             name="address1"
-            value={formData.address1}
+            value={formData.street}
             onChange={handleChange}
             placeholder="Enter street"
             required
