@@ -50,7 +50,7 @@ const Preview = () => {
           </div>
           <div>
             <h3>Street: </h3>
-            <p>{formData.address1}</p>
+            <p>{formData.street}</p>
           </div>
           <div>
             <h3>City: </h3>
