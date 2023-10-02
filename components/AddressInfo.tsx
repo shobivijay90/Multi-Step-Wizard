@@ -101,7 +101,7 @@ const AddressInfo: React.FC = () => {
           <StyledLabel>Street <StyledFormRequired>*</StyledFormRequired></StyledLabel>
           <StyledInput
             type="text"
-            name="address1"
+            name="street"
             value={formData.street}
             onChange={handleChange}
             placeholder="Enter street"
