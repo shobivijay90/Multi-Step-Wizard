@@ -16,7 +16,7 @@ const PersonalInfo: React.FC = () => {
     age: '',
     email: "",
     phoneNumber: "",
-    address1: "",
+    street: "",
     city: "",
     state: "",
     zipCode: "",
